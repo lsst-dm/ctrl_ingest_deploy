@@ -1,0 +1,9 @@
+version: "3.7"
+
+services:
+  ingester:
+    image: ingester:${CTRL_INGESTER_VERSION}
+    build:
+      context: ./ingester
+      args:
+        - LSST_STACK_VERSION
