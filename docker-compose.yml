@@ -3,8 +3,24 @@ version: "3.7"
 services:
   ingester:
     image: ingester:${CTRL_RUCIO_INGEST_VERSION}
+    extra_hosts:
+        - "kafka:127.0.0.1"
     build:
       context: ./ingester
       args:
         - LSST_STACK_VERSION
         - CTRL_RUCIO_INGEST_GIT
+    network_mode: "host"
+  test-ingester:
+    image: ingester:${CTRL_RUCIO_INGEST_VERSION}
+    extra_hosts:
+        - "kafka:127.0.0.1"
+    build:
+      context: ./test-ingester
+      args:
+        - LSST_STACK_VERSION
+        - CTRL_RUCIO_INGEST_GIT
+    volumes:
+      - /tmp:/tmp/
+      - ${HOME}/rucio/ctrl_rucio_ingest:/home/lsst/ctrl_rucio_ingest
+    network_mode: "host"

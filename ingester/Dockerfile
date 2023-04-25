@@ -12,6 +12,9 @@ RUN source /opt/lsst/software/stack/loadLSST.bash && \
     setup -r ctrl_rucio_ingest && \
     cd ctrl_rucio_ingest && \
     scons
+
+RUN source /opt/lsst/software/stack/loadLSST.bash && \
+    pip install confluent_kafka==${CONFLUENT_KAFKA_VERSION}
     
 
 
