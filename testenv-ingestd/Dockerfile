@@ -5,6 +5,7 @@ USER root
 RUN yum install -y nc lldb
 
 USER lsst
+ARG CONFLUENT_KAFKA_VERSION
 RUN source /opt/lsst/software/stack/loadLSST.bash && \
     pip install confluent_kafka==${CONFLUENT_KAFKA_VERSION}
 

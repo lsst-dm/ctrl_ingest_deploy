@@ -13,6 +13,7 @@ RUN source /opt/lsst/software/stack/loadLSST.bash && \
     cd ctrl_rucio_ingest && \
     scons
 
+ARG CONFLUENT_KAFKA_VERSION
 RUN source /opt/lsst/software/stack/loadLSST.bash && \
     pip install confluent_kafka==${CONFLUENT_KAFKA_VERSION}
     
