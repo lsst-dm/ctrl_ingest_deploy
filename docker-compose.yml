@@ -30,5 +30,5 @@ services:
         - CONFLUENT_KAFKA_VERSION
     volumes:
       - /tmp:/tmp/
-      - ${HOME}/rucio/ctrl_rucio_ingest:/home/lsst/ctrl_rucio_ingest
+      - ${HOME}/work/ctrl_rucio_ingest:/home/lsst/ctrl_rucio_ingest
     network_mode: "host"
